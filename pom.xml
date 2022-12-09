@@ -1,0 +1,89 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>se.nikoci</groupId>
+  <artifactId>rolepickerbot</artifactId>
+  <version>1.0.0</version>
+
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>net.dv8tion</groupId>
+      <artifactId>JDA</artifactId>
+      <version>5.0.0-beta.1</version>
+      <exclusions>
+        <exclusion>
+          <groupId>club.minnced</groupId>
+          <artifactId>opus-java</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.24</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>2.0.5</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>2.0.5</version>
+    </dependency>
+    <dependency>
+      <groupId>com.github.minndevelopment</groupId>
+      <artifactId>emoji-java</artifactId>
+      <version>master-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
+
+  <repositories>
+    <repository>
+      <id>jitpack</id>
+      <name>jitpack</name>
+      <url>https://jitpack.io/</url>
+    </repository>
+  </repositories>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.5.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.2.1</version>
+        <configuration>
+          <transformers>
+            <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+              <mainClass>se.nikoci.bot.Main</mainClass>
+            </transformer>
+          </transformers>
+          <createDependencyReducedPom>false</createDependencyReducedPom>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

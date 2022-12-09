@@ -1,0 +1,21 @@
+run.sh
+.editorconfig
+.vscode
+.apt_generated
+
+# Eclipse
+.classpath
+.project
+.settings/
+ 
+# Intellij
+.idea/
+*.iml
+*.iws
+ 
+# Mac
+.DS_Store
+ 
+# Maven
+log/
+target/
