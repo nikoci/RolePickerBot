@@ -31,7 +31,7 @@ public final class Main {
                 .build();
 
         jda.awaitReady();
-        /*jda.addEventListener(
+        jda.addEventListener(
             new MessageContext(),
             new SelectMenu(),
             new ConfigModal(),
@@ -48,7 +48,7 @@ public final class Main {
                         role.getId(),
                         role.getName().replace("color: ", "")));
             }
-        });*/
+        });
 
         jda.getGuildById(Main.getGuildID()).getTextChannelById("1035538503343292417").sendMessage("This is a test message").queue();
     }
